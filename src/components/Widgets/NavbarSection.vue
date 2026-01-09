@@ -28,8 +28,8 @@ onMounted(() => {
 
       <!-- Logo -->
       <a to="/" class="logo">
-        <img class="width-full desktop-logo" src="https://zems.uk/uploads/brands/logo.png" alt="logo" />
-        <img class="width-full mobile-logo" src="https://zems.uk/uploads/brands/logo-2.png" alt="logo" />
+        <img class="width-full desktop-logo" src="https://www.webpoka.com/front/images/logo.png" alt="logo" />
+        <img class="width-full mobile-logo" src="https://www.webpoka.com/front/images/logo.png" alt="logo" />
       </a>
 
       <!-- Navigation Links -->
@@ -62,6 +62,8 @@ onMounted(() => {
   .navbar {
   backdrop-filter: blur(50px);
   box-shadow: var(--box-shadow);
+  background: var(--dark-color);
+  color: var(--white-color);
   padding: 0.75rem 0;
   position: fixed;
   top: 0;

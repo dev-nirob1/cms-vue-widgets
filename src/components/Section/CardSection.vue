@@ -1,6 +1,7 @@
 <script setup>
 import GeneralCard from '../Widgets/Cards/GeneralCard.vue';
 import StatsCard from '../Widgets/Cards/StatsCard.vue';
+import TestimonialCard from '../Widgets/Cards/TestimonialCard.vue';
 import SectionTitle from '../Widgets/SectionTitle.vue';
 
 </script>
@@ -15,6 +16,9 @@ import SectionTitle from '../Widgets/SectionTitle.vue';
       </div>
       <div class="medium-2 large-3 gap-2 mt-2">
         <GeneralCard v-for="item in 3" :key="item"/>
+      </div>
+      <div class="medium-2 gap-2 mt-2">
+        <TestimonialCard v-for="item in 2" :key="item"/>
       </div>
     </div>
   </section>
