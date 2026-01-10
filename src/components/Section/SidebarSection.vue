@@ -14,6 +14,9 @@ import { RouterLink } from 'vue-router';
     <li>
       <RouterLink to="/cards">Cards</RouterLink>
     </li>
+    <li>
+      <RouterLink to="/footer">Footer</RouterLink>
+    </li>
   </ul>
 </template>
 
