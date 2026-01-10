@@ -5,8 +5,19 @@ import { RouterView } from 'vue-router';
 </script>
 
 <template>
-  <div>
+  <div class="layout">
     <SidebarSection/>
-    <RouterView/>
+    <div class="router-view">
+      <RouterView/>
+    </div>
   </div>
 </template>
+<style scoped>
+  .layout{
+    display: flex;
+    gap: 2rem;
+  }
+.router-view {
+  flex: 1;
+}
+</style>

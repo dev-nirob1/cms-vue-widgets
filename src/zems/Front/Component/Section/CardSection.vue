@@ -1,30 +1,39 @@
 <script setup>
-import GeneralCard from '../Widgets/Cards/GeneralCard.vue';
-import StatsCard from '../Widgets/Cards/StatsCard.vue';
-import TestimonialCard from '../Widgets/Cards/TestimonialCard.vue';
-import SectionTitle from '../Widgets/SectionTitle.vue';
+import SectionTitle from '@/components/Widgets/SectionTitle.vue';
+import GeneralCard from '../Widget/Cards/GeneralCard.vue';
+import StatsCard from '../Widget/Cards/StatsCard.vue';
+import TestimonialCard from '../Widget/Cards/TestimonialCard.vue';
+import BaseTitle from '@/components/Elements/BaseTitle.vue';
+import SubTitle from '@/components/Elements/SubTitle.vue';
 
 </script>
 
 <template>
-  <section class="card-section mt-5">
+  <section class="card-section">
     <div class="container">
-      <SectionTitle class="text-center mb-2" title="Check out the different card variants" sub-title="Card Section" />
+      <BaseTitle class="mb-2 text-center">Check out the different card variants</BaseTitle>
 
-      <div class="medium-2 large-3 gap-2">
-        <StatsCard v-for="item in 3" :key="item"/>
+      <SubTitle class="my-1">Statistics Card</SubTitle>
+      <div class="medium-2 large-3 gap-1">
+        <StatsCard v-for="item in 3" :key="item" />
       </div>
-      <div class="medium-2 large-3 gap-2 mt-2">
-        <GeneralCard v-for="item in 3" :key="item"/>
+
+      <SubTitle class="my-1">Multi Purpose Card</SubTitle>
+
+      <div class="medium-2 large-3 gap-1">
+        <GeneralCard v-for="item in 3" :key="item" />
       </div>
-      <div class="medium-2 gap-2 mt-2">
-        <TestimonialCard v-for="item in 2" :key="item"/>
+
+      <SubTitle class="my-1">Testimonial Card</SubTitle>
+
+      <div class="medium-2 gap-1">
+        <TestimonialCard v-for="item in 2" :key="item" />
       </div>
     </div>
   </section>
 </template>
 <style scoped>
 .card-section {
-  padding: 3.75rem 0;
+  padding: 2.5rem 0;
 }
 </style>

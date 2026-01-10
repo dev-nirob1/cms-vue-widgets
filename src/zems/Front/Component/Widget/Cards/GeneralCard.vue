@@ -30,9 +30,9 @@ import SubTitle from '@/components/Elements/SubTitle.vue';
 }
 
 .card .image {
-  max-height: 250px;
-  height: 100%;
+  height: 250px;
   width: 100%;
+  overflow: hidden;
 }
 
 .card .image img {
@@ -44,7 +44,8 @@ import SubTitle from '@/components/Elements/SubTitle.vue';
 
 .card-footer .btn {
   width: 100%;
-  color: white;
+  color: var(--white-color);
   border-radius: .5rem;
+
 }
 </style>
