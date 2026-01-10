@@ -1,11 +1,9 @@
 <script setup>
-import CardSection from './components/Section/CardSection.vue';
-import NavbarSection from './components/Widgets/NavbarSection.vue';
+import { RouterView } from 'vue-router';
 
 </script>
 
 <template>
-  <NavbarSection />
-  <CardSection/>
+  <RouterView/>
 </template>
 
