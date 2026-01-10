@@ -1,3 +1,8 @@
+<script setup>
+import AccordionWidget from '../Component/Widget/Accordion/AccordionWidget.vue';
+
+</script>
+
 <template>
-  accordion
+  <AccordionWidget/>
 </template>

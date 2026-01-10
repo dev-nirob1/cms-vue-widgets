@@ -39,8 +39,6 @@ import { RouterLink } from 'vue-router';
   border-right: 1px solid var(--light-color);
   height: 100vh;
   padding: 0 1rem;
-  position: sticky;
-  top: 0;
 }
 
 .sidebar li a {
@@ -53,4 +51,5 @@ import { RouterLink } from 'vue-router';
 .sidebar li a:hover {
   text-decoration: underline;
 }
+
 </style>
