@@ -1,8 +1,9 @@
 <script setup>
+import BaseImage from '@/components/Elements/BaseImage.vue';
+import ListItem from '@/components/Elements/ListItem.vue';
 import { onMounted, ref } from 'vue';
-import ListItem from '../Elements/ListItem.vue';
 
-  const isMenuOpen = ref(false)
+const isMenuOpen = ref(false)
 
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value;
@@ -19,18 +20,18 @@ onMounted(() => {
 })
 </script>
 <template>
-<header class="navbar">
-    <nav class="flex justify-between align-center container">
+  <header class="navbar">
+    <nav class="flex justify-between align-center container px-2">
       <!-- Mobile Menu Toggle Button -->
       <BaseButton class="hamburger" @click="toggleMenu">
         <i :class="isMenuOpen ? 'fas fa-xmark' : 'fas fa-bars'" class="fa-2xl"></i>
       </BaseButton>
 
       <!-- Logo -->
-      <a to="/" class="logo">
-        <img class="width-full desktop-logo" src="https://www.webpoka.com/front/images/logo.png" alt="logo" />
-        <img class="width-full mobile-logo" src="https://www.webpoka.com/front/images/logo.png" alt="logo" />
-      </a>
+      <RouterLink to="/" class="logo">
+        <BaseImage class="width-full desktop-logo" image="https://www.webpoka.com/front/images/logo.png" alt="logo" />
+        <BaseImage class="width-full mobile-logo" image="https://www.webpoka.com/front/images/logo.png" alt="logo" />
+      </RouterLink>
 
       <!-- Navigation Links -->
       <div class="flex align-center gap-1">
@@ -39,19 +40,19 @@ onMounted(() => {
             <RouterLink to="/">Home</RouterLink>
           </ListItem>
           <ListItem>
-            <a to="/">About</a>
+            <routerLink to="/">About</routerLink>
           </ListItem>
           <ListItem>
-            <a to="/">Projects</a>
+            <routerLink to="/">Projects</routerLink>
           </ListItem>
           <ListItem>
-            <a to="/">Blogs</a>
+            <routerLink to="/">Blogs</routerLink>
           </ListItem>
           <ListItem>
-            <a to="/">Gallery</a>
+            <routerLink to="/">Gallery</routerLink>
           </ListItem>
           <ListItem>
-            <a to="/">Contact</a>
+            <routerLink to="/">Contact</routerLink>
           </ListItem>
         </ul>
       </div>
@@ -59,38 +60,47 @@ onMounted(() => {
   </header>
 </template>
 <style scoped>
-  .navbar {
+.navbar {
   backdrop-filter: blur(50px);
   box-shadow: var(--box-shadow);
   background: var(--dark-color);
   color: var(--white-color);
   padding: 0.75rem 0;
-  position: fixed;
+  /* position: fixed;
   top: 0;
-  left: 0;
+  left: 0; */
+  position: sticky;
+  top: 0;
+  width: fit-content;
   width: 100%;
   z-index: 999;
   transition: all 0.3s ease;
 }
+
 .navbar a {
   text-decoration: none;
 }
+
 .logo img {
   height: 55px;
   width: auto;
 }
+
 /* logo vissibility hidden/block */
 .logo .desktop-logo {
   display: none;
 }
+
 .logo .mobile-logo {
   height: 55px;
   width: auto;
 }
+
 .nav-links {
   display: flex;
   align-items: center;
 }
+
 .navbar ul {
   list-style: none;
   position: fixed;
@@ -105,11 +115,13 @@ onMounted(() => {
   gap: 1.5rem;
   transition: 0.3s;
 }
+
 .navbar ul.active {
   top: 5rem;
   left: 0;
   color: var(--white-color);
 }
+
 .navbar ul li a {
   position: relative;
   display: inline-block;
@@ -117,22 +129,27 @@ onMounted(() => {
   transition: color 0.3s ease-in-out;
   padding: 0.5rem 0;
 }
+
 .navbar ul li .router-link-exact-active {
   color: var(--primary-light-color);
 }
+
 .navbar ul li a:hover {
   color: var(--primary-light-color);
 }
+
 .phone-num {
   gap: .5rem;
   padding-left: .75rem;
   font-weight: 500;
 }
+
 .phone-num i {
   color: var(--white-color);
   background-color: var(--primary-light-color);
   padding: .5rem;
 }
+
 /* Mobile menu toggle */
 .hamburger {
   display: block;
@@ -150,6 +167,7 @@ onMounted(() => {
     background-color: transparent;
     padding: 0.75rem 0;
   }
+
   /* Desktop menu hover effects */
   .navbar ul li a::after,
   .navbar ul li .router-link-exact-active::after {
@@ -162,22 +180,24 @@ onMounted(() => {
     background: var(--primary-light-color);
     transition: width 0.3s ease;
   }
+
   .navbar ul li .router-link-exact-active::after {
     width: 100%;
   }
+
   .navbar ul li a:hover::after {
     width: 100%;
   }
+
   /* logo vissibility hidden/block */
   .logo .desktop-logo {
     display: block;
   }
+
   .logo .mobile-logo {
     display: none;
   }
-  .phone-num {
-    border-left: 1px solid var(--secondary-color);
-  }
+
   /* expand navlinks on desktop  */
   .hamburger {
     display: none;

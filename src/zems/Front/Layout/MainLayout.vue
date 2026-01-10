@@ -6,18 +6,20 @@ import { RouterView } from 'vue-router';
 
 <template>
   <div class="layout">
-    <SidebarSection/>
+    <SidebarSection />
     <div class="router-view">
-      <RouterView/>
+      <RouterView />
     </div>
   </div>
 </template>
 <style scoped>
-  .layout{
-    display: flex;
-    gap: 2rem;
-  }
+.layout {
+  display: flex;
+}
+
 .router-view {
   flex: 1;
+  position: relative;
+  padding: 2rem;
 }
 </style>

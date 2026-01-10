@@ -1,5 +1,4 @@
 <script setup>
-import SectionTitle from '@/components/Widgets/SectionTitle.vue';
 import GeneralCard from '../Widget/Cards/GeneralCard.vue';
 import StatsCard from '../Widget/Cards/StatsCard.vue';
 import TestimonialCard from '../Widget/Cards/TestimonialCard.vue';

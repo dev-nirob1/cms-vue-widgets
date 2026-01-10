@@ -6,7 +6,10 @@ import { RouterLink } from 'vue-router';
 <template>
   <ul class="sidebar">
     <li>
-      <RouterLink to="/cards">Navbar</RouterLink>
+      <RouterLink to="/accordion">Accordion</RouterLink>
+    </li>
+    <li>
+      <RouterLink to="/navbar">Navbar</RouterLink>
     </li>
     <li>
       <RouterLink to="/cards">Cards</RouterLink>
@@ -15,24 +18,27 @@ import { RouterLink } from 'vue-router';
 </template>
 
 <style scoped>
-  .sidebar {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    max-width: 300px;
-    width: 100%;
-    border-right: 1px solid var(--light-color);
-    height: 100vh;
-    padding: 0 1rem;
-  }
-  .sidebar li a {
-    display: block;
-    padding: .5rem;
-    text-decoration: none;
-    background-color: var(--light-color);
-  }
-  .sidebar li a:hover {
-    text-decoration: underline;
-  }
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  max-width: 300px;
+  width: 100%;
+  border-right: 1px solid var(--light-color);
+  height: 100vh;
+  padding: 0 1rem;
+  position: sticky;
+  top: 0;
+}
 
+.sidebar li a {
+  display: block;
+  padding: .5rem;
+  text-decoration: none;
+  background-color: var(--light-color);
+}
+
+.sidebar li a:hover {
+  text-decoration: underline;
+}
 </style>
