@@ -1,4 +1,5 @@
 <script setup>
+import SubTitle from '@/components/Elements/SubTitle.vue';
 import FourColumnFooter from '../Component/Widget/Footer/FourColumnFooter.vue';
 import ThreeColumnFooter from '../Component/Widget/Footer/ThreeColumnFooter.vue';
 
@@ -6,7 +7,9 @@ import ThreeColumnFooter from '../Component/Widget/Footer/ThreeColumnFooter.vue'
 
 <template>
   <div class="footer-page">
+    <SubTitle>Three Column Footer</SubTitle>
     <ThreeColumnFooter/>
+    <SubTitle>Four Column Footer</SubTitle>
     <FourColumnFooter/>
   </div>
 </template>

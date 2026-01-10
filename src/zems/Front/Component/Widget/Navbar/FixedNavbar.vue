@@ -21,7 +21,7 @@ onMounted(() => {
 </script>
 <template>
   <header class="navbar">
-    <nav class="flex justify-between align-center container px-2">
+    <nav class="flex justify-between align-center container">
       <!-- Mobile Menu Toggle Button -->
       <BaseButton class="hamburger" @click="toggleMenu">
         <i :class="isMenuOpen ? 'fas fa-xmark' : 'fas fa-bars'" class="fa-2xl"></i>
