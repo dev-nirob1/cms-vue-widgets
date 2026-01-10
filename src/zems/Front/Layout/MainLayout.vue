@@ -35,7 +35,7 @@ const toggleSidebar = () => {
     <!-- BODY -->
     <div class="body">
       <!-- SIDEBAR -->
-        <SidebarSection :class="['sidebar', { open: sidebarOpen }]" />
+      <SidebarSection :class="['sidebar', { open: sidebarOpen }]" />
 
       <!-- CONTENT -->
       <main class="content">
@@ -44,16 +44,12 @@ const toggleSidebar = () => {
     </div>
 
     <!-- BACKDROP -->
-    <div
-      v-if="sidebarOpen"
-      class="backdrop"
-      @click="toggleSidebar"
-    ></div>
+    <div v-if="sidebarOpen" class="backdrop" @click="toggleSidebar"></div>
 
   </div>
 </template>
 <style scoped>
-  /* ROOT */
+/* ROOT */
 .app-layout {
   min-height: 100vh;
   background: #f9fafb;
@@ -124,7 +120,7 @@ const toggleSidebar = () => {
   width: 280px;
   height: 100vh;
   background: white;
-  border-right: 1px solid #e5e7eb;
+  border-right: 1px solid var(--light-color);
   transform: translateX(-100%);
   transition: transform 0.3s ease;
   z-index: 1000;
@@ -139,7 +135,6 @@ const toggleSidebar = () => {
 .content {
   flex: 1;
   padding: 2rem;
-  margin-top: 64px;
 }
 
 /* BACKDROP */
@@ -149,5 +144,4 @@ const toggleSidebar = () => {
   background: rgba(0, 0, 0, 0.4);
   z-index: 150;
 }
-
 </style>

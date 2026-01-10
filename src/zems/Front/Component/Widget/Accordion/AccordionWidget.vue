@@ -10,11 +10,11 @@ const toggleAccordion = (index) => {
 <template>
   <div v-for="(data, i) in 3" :key="i" class="accordion">
     <div @click="toggleAccordion(i)" class="accordion-title">
-      this is accordion
+     How to integrate in projects?
       <i :class="currentOpenItem == i ? 'fa-solid fa-minus' : 'fa-solid fa-plus'"></i>
     </div>
     <div class="accordion-body" :class="{ 'active': currentOpenItem == i }">
-      this is data
+      You can import the component library into any Vue project and use its components directly, passing props and slots as needed without rewriting HTML or CSS.
     </div>
   </div>
 </template>
@@ -41,7 +41,7 @@ const toggleAccordion = (index) => {
   max-height: 0;
   overflow: hidden;
   background-color: var(--white-color);
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
 }
 
 .accordion-body.active {

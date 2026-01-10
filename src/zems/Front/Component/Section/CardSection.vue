@@ -31,8 +31,3 @@ import SubTitle from '@/components/Elements/SubTitle.vue';
     </div>
   </section>
 </template>
-<style scoped>
-.card-section {
-  padding: 2.5rem 0;
-}
-</style>
