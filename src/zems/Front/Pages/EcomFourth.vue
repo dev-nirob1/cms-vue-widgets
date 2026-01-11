@@ -9,10 +9,10 @@ import SubTitle from '@/components/Elements/SubTitle.vue'
 ====================== */
 
 // vertical | horizontal
-const layout = 'vertical'
+const layout = 'horizontal'
 
 // top | bottom | left | right
-const imagePosition = 'top'
+const imagePosition = 'left'
 
 // color | image
 const bgType = 'image'
@@ -53,7 +53,7 @@ const buttons = [
     :style="cardStyles"
   >
     <div class="image">
-      <BaseImage :image="image" />
+      <!-- <BaseImage :image="image" /> -->
       <div class="badge" v-if="showBadge">20% Off</div>
     </div>
 
@@ -143,7 +143,7 @@ const buttons = [
 /* ======================
    BACKGROUND TYPE
 ====================== */
-.card[data-bg='image'] {
+.card[data-bg='image'] .image {
   background-image: var(--bg-image);
   background-size: cover;
   background-position: center;

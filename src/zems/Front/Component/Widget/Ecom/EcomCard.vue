@@ -4,16 +4,41 @@ import BaseImage from '@/components/Elements/BaseImage.vue';
 import BaseParagraph from '@/components/Elements/BaseParagraph.vue';
 import SubTitle from '@/components/Elements/SubTitle.vue';
 
+// horizontal or vertical
+const layout = 'vertical';
+// image position: (top/bottom/left/right)
+const imagePosition = 'top';
+
+// action button count:( 0/1/2)
+const btnCount = 2;
+//show badge (true / false)
+const showBadge = false;
+//show price (true / false)
+const showPrice = true;
+//show price (true / false)
+const showPrevPrice = false;
+
+// background style --- (color / image / none)
+const bgStyle = 'none'
+
 </script>
 
 <template>
-    <div class="card">
-      <div class="image">
-        <BaseImage class="w-full h-full"
-          image="https://images.pexels.com/photos/35414303/pexels-photo-35414303/free-photo-of-stunning-sunrise-over-canadian-rockies-reflection.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
-        <div class="badge">20% Off</div>
-      </div>
-      <div class="card-body mt-1">
+  <div class="card" :data-layout="layout" :data-image="imagePosition" :data-action="btnCount" :data-btnName="btnName"
+    :data-badge="showBadge"
+    :data-price="showPrice"
+    :data-prev-price="showPrevPrice"
+    :data-style="bgStyle"
+
+    >
+
+    <div class="image">
+      <BaseImage
+        image="https://images.pexels.com/photos/35414303/pexels-photo-35414303/free-photo-of-stunning-sunrise-over-canadian-rockies-reflection.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
+    </div>
+    <div class="card-content">
+      <div class="card-body">
+        <span class="badge">20% Off</span>
         <SubTitle>Step Into Comfort</SubTitle>
         <BaseParagraph>Discover our latest collection of sneakers designed for style, comfort.
         </BaseParagraph>
@@ -25,53 +50,128 @@ import SubTitle from '@/components/Elements/SubTitle.vue';
         <BaseButton class="bg-primary text-white">Add To Cart</BaseButton>
       </div>
     </div>
+  </div>
 
 </template>
 <style scoped>
-.card {
-  padding: .75rem;
-  border-radius: .5rem;
-  border: 1px solid var(--light-color);
+/* layout axios x / y  */
+.card[data-layout='horizontal'] {
+  flex-direction: row;
 }
 
-.card .image {
-  height: 250px;
-  width: 100%;
-  overflow: hidden;
+.card[data-layout='vertical'] {
+  flex-direction: column;
+}
+
+/* horizontal card image position  */
+.card[data-layout='horizontal'][data-image='left'] .image {
+  order: 1;
+}
+
+.card[data-layout='horizontal'][data-image='left'] .card-content {
+  order: 2;
+}
+
+.card[data-layout='horizontal'][data-image='right'] .image {
+  order: 2;
+}
+
+.card[data-layout='horizontal'][data-image='right'] .card-content {
+  order: 1;
+}
+
+/* vertical card image position  */
+.card[data-layout='vertical'][data-image='top'] .image {
+  order: 1;
+}
+
+.card[data-layout='vertical'][data-image='top'] .card-content {
+  order: 2;
+}
+
+.card[data-layout='vertical'][data-image='bottom'] .image {
+  order: 2;
+}
+
+.card[data-layout='vertical'][data-image='bottom'] .card-content {
+  order: 1;
+}
+
+/* show badge  */
+.card[data-badge='false'] .badge {
+  display: none;
+}
+
+/* show previous price  */
+.card[data-prev-price='false'] .prev-price {
+  display: none;
+}
+
+/* show  price  */
+.card[data-price='false'] .price {
+  display: none;
+}
+
+/* action btn count  */
+.card[data-action='1'] .btn:not(:first-child) {
+  display: none;
+}
+
+.card[data-action='0'] .card-footer {
+  display: none;
+}
+
+/* background style image */
+.card[data-style ='image'] {
+  background: url('https://images.unsplash.com/photo-1591779051696-1c3fa1469a79?q=80&w=774&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center / cover no-repeat;
+}
+/* background style color  */
+.card[data-style ='color'] {
+  background: lightblue;
+}
+
+/* base style  */
+.card {
+  display: flex;
+  gap: 1rem;
+  padding: .5rem;
+  border-radius: .5rem;
+  box-shadow: var(--box-shadow);
   position: relative;
 }
 
-.badge {
-  position: absolute;
-  right: 1rem;
-  top: 1rem;
-  background: var(--primary-color);
-  z-index: 999;
-  color: var(--white-color);
-  padding: .5rem;
-  border-radius: .35rem;
-}
-.price{
-  font-weight: bold;
-}
-.prev-price {
-  color: rgb(from var(--primary-color)r g b / 50%);
+.card .image {
+  width: 100%;
+  height: 250px;
+  overflow: hidden;
+  border-radius: .5rem .5rem 0 0;
 }
 
 .card .image img {
-  height: 100%;
   width: 100%;
+  height: 100%;
   object-fit: cover;
-  border-radius: .5rem .5rem 0 0;
 }
+
 .card-footer {
   display: flex;
   gap: 1rem;
 }
-.card-footer .btn {
+
+.card .btn {
   width: 100%;
   color: var(--white-color);
   border-radius: .5rem;
+}
 
+.card .badge {
+  padding: .1rem .25rem;
+  border-radius: .25rem;
+  font-size: .9rem;
+  color: var(--white-color);
+  background: var(--primary-color);
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
 }
 </style>
