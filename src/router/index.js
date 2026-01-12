@@ -2,7 +2,6 @@ import MainLayout from '@/zems/Front/Layout/MainLayout.vue'
 import AccordionPage from '@/zems/Front/Pages/AccordionPage.vue'
 import CardsPage from '@/zems/Front/Pages/CardsPage.vue'
 import ComponentsPage from '@/zems/Front/Pages/ComponentsPage.vue'
-import EcomCard from '@/zems/Front/Pages/EcomCard.vue'
 import FooterPage from '@/zems/Front/Pages/FooterPage.vue'
 import FormPage from '@/zems/Front/Pages/FormPage.vue'
 import GalleryPage from '@/zems/Front/Pages/GalleryPage.vue'
@@ -25,11 +24,6 @@ const router = createRouter({
           path: '/accordion',
           name: 'accordion',
           component: AccordionPage,
-        },
-        {
-          path: '/e-card',
-          name: 'e-card',
-          component: EcomCard,
         },
         {
           path: '/cards',
