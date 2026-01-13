@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import BaseButton from '@/components/Elements/BaseButton.vue';
 import BaseImage from '@/components/Elements/BaseImage.vue';
 import BaseParagraph from '@/components/Elements/BaseParagraph.vue';
@@ -7,14 +7,16 @@ import SubTitle from '@/components/Elements/SubTitle.vue';
 </script>
 
 <template>
-  <div class="card product-card">
+  <!-- default image at top. use image-left / image-right / image bottom to change position; -->
+
+  <div class=" image-right card">
     <div class="image">
       <BaseImage
         image="https://images.pexels.com/photos/35414303/pexels-photo-35414303/free-photo-of-stunning-sunrise-over-canadian-rockies-reflection.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
       <div class="badge">20% Off</div>
     </div>
     <div class="card-content">
-      <div class="card-body mt-1">
+      <div class="card-body">
         <SubTitle>Step Into Comfort</SubTitle>
         <BaseParagraph>Discover our latest collection of sneakers designed for style, comfort.
         </BaseParagraph>
@@ -30,66 +32,37 @@ import SubTitle from '@/components/Elements/SubTitle.vue';
 
 </template>
 <style scoped>
+/* base styles  */
 .card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: .75rem;
   border: 1px solid var(--light-color);
   position: relative;
 }
 
-.default-card .btn.bg-secondary,
-.default-card .price,
-.default-card .badge {
-  display: none;
+.card .image {
+  height: 250px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
-.default-card .card-body,
-.default-card .card-footer {
-  padding: .5rem;
+.card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-.product-card.card {
-  padding: .5rem;
-}
-
-.product-card.card {
-  border-radius: .5rem;
-  box-shadow: var(--box-shadow);
-}
-
-.product-card .image {
-  border-radius: .5rem .5rem 0 0;
-}
-
-.product-card .card-body,
-.product-card .card-footer {
-  padding: 0 .5rem;
-}
-
-.product-card .card-body {
-  display: flex;
-  flex-direction: column;
-}
-
-.product-card .card-body>* {
-  order: 2;
-}
-
-.product-card .price {
-  order: 1;
-  margin-top: 0;
-}
-
-.product-card .badge {
-  padding: .5rem;
-  color: var(--white-color);
-  border-radius: .5rem;
-  background: var(--primary-color);
+.badge {
   position: absolute;
-  left: 1rem;
   top: 1rem;
-}
-
-.product-card .btn {
-  border-radius: .5rem;
+  left: 1rem;
+  background: var(--primary-color);
+  color: var(--white-color);
+  padding: .25rem .5rem;
+  font-weight: bold;
 }
 
 .card-footer {
@@ -97,20 +70,32 @@ import SubTitle from '@/components/Elements/SubTitle.vue';
   gap: 1rem;
 }
 
-.card .btn {
+.card-footer .btn {
   color: var(--white-color);
   width: 100%;
 }
 
-.image {
-  width: 100%;
-  height: 250px;
-  overflow: hidden;
+/* based on class change  */
+
+.image-bottom.card {
+  flex-direction: column-reverse;
 }
 
-.image img {
+.image-left.card .image,
+.image-right.card .image {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+}
+
+.image-left.card .card-content,
+.image-right.card .card-content {
+  width: 100%;
+}
+
+.image-left.card {
+  flex-direction: row;
+}
+
+.image-right.card {
+  flex-direction: row-reverse;
 }
 </style>

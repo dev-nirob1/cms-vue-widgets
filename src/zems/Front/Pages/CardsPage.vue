@@ -10,7 +10,7 @@ import StatsCard from '../Component/Widget/Cards/StatsCard.vue';
 <template>
   <SubTitle class="my-1">Reusable Card</SubTitle>
 
-  <div class="medium-2 large-3 gap-1">
+  <div class="medium-2 large-2 gap-1">
     <ReusableCard />
   </div>
 
