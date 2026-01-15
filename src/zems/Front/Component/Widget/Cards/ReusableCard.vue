@@ -9,7 +9,7 @@ import SubTitle from '@/components/Elements/SubTitle.vue';
 <template>
   <!-- default image at top. use image-left / image-right / image bottom to change position; -->
 
-  <div class=" image-right card">
+  <div class="card image-right">
     <div class="image">
       <BaseImage
         image="https://images.pexels.com/photos/35414303/pexels-photo-35414303/free-photo-of-stunning-sunrise-over-canadian-rockies-reflection.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" />
