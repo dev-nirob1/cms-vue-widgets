@@ -9,6 +9,9 @@ import { RouterLink } from 'vue-router';
       <RouterLink to="/accordion">Accordion</RouterLink>
     </li>
     <li>
+      <RouterLink to="/button">Button</RouterLink>
+    </li>
+    <li>
       <RouterLink to="/cards">Cards</RouterLink>
     </li>
     <li>

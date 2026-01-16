@@ -1,5 +1,6 @@
 import MainLayout from '@/zems/Front/Layout/MainLayout.vue'
 import AccordionPage from '@/zems/Front/Pages/AccordionPage.vue'
+import ButtonsPage from '@/zems/Front/Pages/ButtonsPage.vue'
 import CardsPage from '@/zems/Front/Pages/CardsPage.vue'
 import ComponentsPage from '@/zems/Front/Pages/ComponentsPage.vue'
 import FooterPage from '@/zems/Front/Pages/FooterPage.vue'
@@ -24,6 +25,11 @@ const router = createRouter({
           path: '/accordion',
           name: 'accordion',
           component: AccordionPage,
+        },
+        {
+          path: '/button',
+          name: 'button',
+          component: ButtonsPage,
         },
         {
           path: '/cards',
