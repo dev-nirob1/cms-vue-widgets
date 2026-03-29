@@ -14,6 +14,11 @@ import AlertsPage from '@/zems/Front/Pages/AlertsPage.vue'
 import TabsPage from '@/zems/Front/Pages/TabsPage.vue'
 import TablesPage from '@/zems/Front/Pages/TablesPage.vue'
 import DropdownsPage from '@/zems/Front/Pages/DropdownsPage.vue'
+import BreadcrumbsPage from '@/zems/Front/Pages/BreadcrumbsPage.vue'
+import StepsPage from '@/zems/Front/Pages/StepsPage.vue'
+import BadgesPage from '@/zems/Front/Pages/BadgesPage.vue'
+import LoadersPage from '@/zems/Front/Pages/LoadersPage.vue'
+import TooltipsPage from '@/zems/Front/Pages/TooltipsPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -49,19 +54,24 @@ const router = createRouter({
           component: AlertsPage,
         },
         {
-          path: '/tables',
-          name: 'tables',
-          component: TablesPage,
+          path: '/badges',
+          name: 'badges',
+          component: BadgesPage,
         },
         {
-          path: '/dropdowns',
-          name: 'dropdowns',
-          component: DropdownsPage,
+          path: '/breadcrumbs',
+          name: 'breadcrumbs',
+          component: BreadcrumbsPage,
         },
         {
           path: '/button',
           name: 'button',
           component: ButtonsPage,
+        },
+        {
+          path: '/dropdowns',
+          name: 'dropdowns',
+          component: DropdownsPage,
         },
         {
           path: '/cards',
@@ -79,6 +89,11 @@ const router = createRouter({
           component: GalleryPage,
         },
         {
+          path: '/loaders',
+          name: 'loaders',
+          component: LoadersPage,
+        },
+        {
           path: '/modal',
           name: 'modal',
           component: ModalPage,
@@ -89,9 +104,24 @@ const router = createRouter({
           component: NavbarPage,
         },
         {
+          path: '/steps',
+          name: 'steps',
+          component: StepsPage,
+        },
+        {
+          path: '/tables',
+          name: 'tables',
+          component: TablesPage,
+        },
+        {
           path: '/tabs',
           name: 'tabs',
           component: TabsPage,
+        },
+        {
+          path: '/tooltips',
+          name: 'tooltips',
+          component: TooltipsPage,
         },
         {
           path: '/footer',
