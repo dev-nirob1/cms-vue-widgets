@@ -30,7 +30,7 @@ const removeToast = (id) => {
   toasts.value = toasts.value.filter(t => t.id !== id);
 };
 
-const standardCode = `<template>
+const standardHtml = `<template>
   <!-- Success -->
   <div class="alert alert-success">
     <div class="alert-icon"><!-- SVG --></div>
@@ -51,7 +51,31 @@ const standardCode = `<template>
   </div>
 </template>`;
 
-const borderCode = `<template>
+const standardCss = `/* Soft Banner Alerts */
+.alert { display: flex; gap: 1rem; padding: 1rem; border-radius: 10px; width: 100%; align-items: flex-start; }
+.alert-icon { padding-top: 0.2rem; flex-shrink: 0; }
+.alert-content { flex: 1; }
+.alert-content h5 { margin: 0 0 0.25rem 0; font-size: 0.95rem; font-weight: 700; }
+.alert-content p { margin: 0; font-size: 0.875rem; line-height: 1.5; }
+.alert-close { background: transparent; border: none; cursor: pointer; padding: 0.25rem; border-radius: 4px; display: flex; opacity: 0.7; transition: all 0.2s; }
+.alert-close:hover { opacity: 1; background: rgba(0,0,0,0.05); }
+
+/* Success Variant */
+.alert-success { background: #f0fdf4; color: #166534; }
+.alert-success .alert-icon { color: #22c55e; }
+.alert-success .alert-content p { color: #15803d; }
+
+/* Danger Variant */
+.alert-danger { background: #fef2f2; color: #991b1b; }
+.alert-danger .alert-icon { color: #ef4444; }
+.alert-danger .alert-content p { color: #b91c1c; }`;
+
+const standardBlocks = [
+  { name: 'Vue', language: 'html', code: standardHtml },
+  { name: 'CSS', language: 'css', code: standardCss }
+];
+
+const borderHtml = `<template>
   <div class="alert border-left warning">
     <div class="alert-icon"><!-- SVG --></div>
     <div class="alert-content">
@@ -62,14 +86,33 @@ const borderCode = `<template>
   </div>
 </template>`;
 
-const toastCode = `<template>
+const borderCss = `/* Border Left Highlight Alerts */
+.border-left { display: flex; gap: 1rem; padding: 1.25rem; border-radius: 6px; width: 100%; align-items: center; background: white; box-shadow: 0 1px 3px rgba(0,0,0,0.1); border-left: 4px solid transparent; }
+.border-left .alert-content h5 { margin: 0 0 0.15rem 0; font-size: 0.95rem; font-weight: 700; color: #0f172a; }
+.border-left .alert-content p { margin: 0; font-size: 0.85rem; color: #64748b; }
+
+.btn { background: transparent; border: none; font-size: 0.85rem; font-weight: 600; cursor: pointer; padding: 0.5rem 0.75rem; border-radius: 6px; white-space: nowrap; }
+.btn:hover { background: #f1f5f9; }
+
+/* Warning Variant */
+.warning { border-left-color: #eab308; }
+.warning .alert-icon { color: #eab308; }
+.warning-text { color: #ca8a04; }
+.warning-text:hover { background: #fefce8; }`;
+
+const borderBlocks = [
+  { name: 'Vue', language: 'html', code: borderHtml },
+  { name: 'CSS', language: 'css', code: borderCss }
+];
+
+const toastHtml = `<template>
   <button @click="showToast('success')">Show Toast</button>
 
   <Teleport to="body">
     <div class="toast-container">
       <TransitionGroup name="toast-list">
         <div v-for="toast in toasts" :key="toast.id" :class="['toast-card', toast.type]">
-          <div class="toast-icon"><!-- SVG based on type --></div>
+          <div class="toast-icon"><!-- SVG --></div>
           <div class="toast-text">
             <strong>{{ toast.title }}</strong>
             <span>{{ toast.desc }}</span>
@@ -80,6 +123,34 @@ const toastCode = `<template>
     </div>
   </Teleport>
 </template>`;
+
+const toastCss = `/* Floating Toasts container */
+.toast-container { position: fixed; bottom: 2rem; right: 2rem; display: flex; flex-direction: column; gap: 0.75rem; z-index: 11000; pointer-events: none; }
+
+.toast-card { background: white; border-radius: 8px; box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.1); padding: 1rem; display: flex; align-items: flex-start; gap: 0.85rem; width: 320px; border-left: 4px solid #cbd5e1; pointer-events: auto; }
+.toast-card.success { border-left-color: #22c55e; }
+.toast-card.error { border-left-color: #ef4444; }
+
+.toast-icon { padding-top: 0.1rem; }
+.toast-card.success .toast-icon { color: #22c55e; }
+.toast-card.error .toast-icon { color: #ef4444; }
+
+.toast-text { flex: 1; display: flex; flex-direction: column; gap: 0.2rem; }
+.toast-text strong { font-size: 0.9rem; font-weight: 700; color: #0f172a; }
+.toast-text span { font-size: 0.85rem; color: #64748b; line-height: 1.4; }
+
+.toast-close { background: transparent; border: none; color: #cbd5e1; margin-left: 0.5rem; padding: 0.2rem; cursor: pointer; border-radius: 4px; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.toast-close:hover { background: #f1f5f9; color: #64748b; }
+
+/* Global Toast Transitions */
+.toast-list-enter-active, .toast-list-leave-active { transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+.toast-list-enter-from { opacity: 0; transform: translateX(100px) scale(0.9); }
+.toast-list-leave-to { opacity: 0; transform: translateY(20px) scale(0.9); }`;
+
+const toastBlocks = [
+  { name: 'Vue', language: 'html', code: toastHtml },
+  { name: 'CSS', language: 'css', code: toastCss }
+];
 </script>
 
 <template>
@@ -132,7 +203,7 @@ const toastCode = `<template>
         </div>
       </div>
     </div>
-    <transition name="slide"><CodeSnippet v-if="show['standard']" :code="standardCode" language="html" /></transition>
+    <transition name="slide"><CodeSnippet v-if="show['standard']" :blocks="standardBlocks" /></transition>
   </section>
 
   <!-- Variant 2: Border Left -->
@@ -163,7 +234,7 @@ const toastCode = `<template>
         </div>
       </div>
     </div>
-    <transition name="slide"><CodeSnippet v-if="show['border']" :code="borderCode" language="html" /></transition>
+    <transition name="slide"><CodeSnippet v-if="show['border']" :blocks="borderBlocks" /></transition>
   </section>
 
   <!-- Variant 3: Interactive Toasts -->
@@ -179,7 +250,7 @@ const toastCode = `<template>
         <button @click="showToast('info')" class="trigger-btn info">Trigger Info Toast</button>
       </div>
     </div>
-    <transition name="slide"><CodeSnippet v-if="show['toast']" :code="toastCode" language="html" /></transition>
+    <transition name="slide"><CodeSnippet v-if="show['toast']" :blocks="toastBlocks" /></transition>
 
     <!-- Teleport container for Toasts to render globally -->
     <Teleport to="body">

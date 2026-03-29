@@ -49,7 +49,7 @@ const open = ref(null);
 
 const navbar2Code = `<template>
   <nav class="navbar-glass">
-    <div class="logo">Zems<span>UI</span></div>
+    <div class="logo">Pure<span>Vue</span></div>
     <ul class="nav-links">
       <li class="has-mega">
         Solutions ▾
@@ -151,7 +151,7 @@ const navbar3Code = `<template>
     <div class="preview-area no-pad dark-bg">
       <nav class="nb2" @click.stop>
         <div class="nb2-inner">
-          <div class="nb2-logo">Zems<span>UI</span></div>
+          <div class="nb2-logo">Pure<span>Vue</span></div>
           <ul class="nb2-links">
             <li class="nb2-item" @click="n2Open = n2Open === 'solutions' ? null : 'solutions'">
               Solutions <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>

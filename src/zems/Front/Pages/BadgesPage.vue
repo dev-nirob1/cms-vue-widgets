@@ -6,7 +6,7 @@ import CodeSnippet from '@/components/Elements/CodeSnippet.vue';
 const show = ref({});
 const toggle = (id) => { show.value[id] = !show.value[id]; };
 
-const badgesCode = `<template>
+const badgesHtml = `<template>
   <div class="badge-group">
     <!-- Solid -->
     <span class="badge solid-gray">Draft</span>
@@ -33,7 +33,40 @@ const badgesCode = `<template>
   </div>
 </template>`;
 
-const avatarCode = `<template>
+const badgesCss = `/* Badges Base */
+.badge { display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.25rem 0.65rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+.dot { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
+
+/* Solid Variants */
+.solid-gray { background: #475569; color: white; }
+.solid-red { background: #ef4444; color: white; }
+.solid-yellow { background: #eab308; color: white; }
+.solid-green { background: #22c55e; color: white; }
+.solid-blue { background: #3b82f6; color: white; }
+
+/* Soft Variants */
+.soft-gray { background: #f1f5f9; color: #475569; }
+.soft-red { background: #fef2f2; color: #991b1b; }
+.soft-yellow { background: #fefce8; color: #854d0e; }
+.soft-green { background: #f0fdf4; color: #166534; }
+.soft-blue { background: #eff6ff; color: #1e40af; }
+
+/* Outlined Variants */
+.outline-gray { border: 1px solid rgba(255,255,255,0.2); color: #cbd5e1; }
+.d-gray { background: #94a3b8; }
+.outline-red { border: 1px solid #7f1d1d; color: #fca5a5; }
+.d-red { background: #ef4444; }
+.outline-yellow { border: 1px solid #713f12; color: #fde047; }
+.d-yellow { background: #eab308; }
+.outline-green { border: 1px solid #14532d; color: #86efac; }
+.d-green { background: #22c55e; }`;
+
+const badgesBlocks = [
+  { name: 'Vue', language: 'html', code: badgesHtml },
+  { name: 'CSS', language: 'css', code: badgesCss }
+];
+
+const avatarHtml = `<template>
   <div class="avatar-group">
     <div class="avatar-stack">
       <img src="..." class="avatar a-md" alt="" />
@@ -50,6 +83,28 @@ const avatarCode = `<template>
     </div>
   </div>
 </template>`;
+
+const avatarCss = `/* Avatar Base Styles */
+.avatar-stack { display: flex; align-items: center; }
+.avatar { border-radius: 50%; object-fit: cover; background: #e2e8f0; }
+.a-md { width: 44px; height: 44px; }
+.a-lg { width: 64px; height: 64px; }
+
+/* Overlapping Stack Logic */
+.avatar.ring { border: 3px solid white; box-shadow: 0 0 0 1px rgba(0,0,0,0.05); }
+.avatar-stack .avatar { margin-right: -12px; transition: transform 0.2s; position: relative; }
+.avatar-stack .avatar:hover { transform: translateY(-4px); z-index: 10; }
+.a-rest { display: flex; align-items: center; justify-content: center; background: #f1f5f9; color: #475569; font-size: 0.8rem; font-weight: 700; border: 3px solid white; z-index: 5; margin-right: 0 !important; }
+
+/* Status Indicator Logic */
+.avatar-wrapper { position: relative; display: inline-block; }
+.status-indicator { position: absolute; bottom: 2px; right: 2px; width: 14px; height: 14px; border-radius: 50%; border: 2px solid white; }
+.status-indicator.active { background: #22c55e; }`;
+
+const avatarBlocks = [
+  { name: 'Vue', language: 'html', code: avatarHtml },
+  { name: 'CSS', language: 'css', code: avatarCss }
+];
 </script>
 
 <template>
@@ -86,7 +141,7 @@ const avatarCode = `<template>
         <span class="badge outline-green"><span class="dot d-green"></span> Operational</span>
       </div>
     </div>
-    <transition name="slide"><CodeSnippet v-if="show['badges']" :code="badgesCode" language="html" /></transition>
+    <transition name="slide"><CodeSnippet v-if="show['badges']" :blocks="badgesBlocks" /></transition>
   </section>
 
   <!-- Variant 2: Avatars -->
@@ -119,7 +174,7 @@ const avatarCode = `<template>
       </div>
 
     </div>
-    <transition name="slide"><CodeSnippet v-if="show['avatars']" :code="avatarCode" language="html" /></transition>
+    <transition name="slide"><CodeSnippet v-if="show['avatars']" :blocks="avatarBlocks" /></transition>
   </section>
 </template>
 

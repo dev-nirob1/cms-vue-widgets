@@ -8,7 +8,7 @@ const navigation = [
     title: 'Getting Started',
     items: [
       { name: 'Introduction', path: '/', icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332-4.5 1.253' },
-      { name: 'Guide', path: '/installation', icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4' },
+      { name: 'Quickstart Guide', path: '/installation', icon: 'M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4' },
     ]
   },
   {
@@ -35,11 +35,20 @@ const navigation = [
   }
 ];
 
-const isActive = (path) => route.path === path;
+const isActive = (path) => {
+  if (path === '/') {
+    return route.path === '/';
+  }
+  return route.path.startsWith(path);
+};
 </script>
 
 <template>
   <nav class="sidebar-nav">
+    <div class="sidebar-header">
+      <div class="version-badge">Version 1.0.0</div>
+    </div>
+    
     <div v-for="section in navigation" :key="section.title" class="nav-section">
       <h3 class="section-title">{{ section.title }}</h3>
       <ul class="nav-list">
@@ -48,8 +57,8 @@ const isActive = (path) => route.path === path;
             :to="item.path" 
             :class="['nav-item', { active: isActive(item.path) }]"
           >
-            <div class="icon-box">
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <div class="icon-space">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
                 <path :d="item.icon" />
               </svg>
             </div>
@@ -63,20 +72,40 @@ const isActive = (path) => route.path === path;
 
 <style scoped>
 .sidebar-nav {
-  padding: 0 1.25rem;
+  padding: 0 1.25rem 2rem 1.25rem;
+  font-family: 'Inter', var(--montserrat-font);
+}
+
+.sidebar-header {
+  margin-bottom: 2rem;
+  padding-left: 0.75rem;
+}
+
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  background: var(--light-color);
+  color: #475569;
+  border: 1px solid #e2e8f0;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .nav-section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.25rem;
 }
 
 .section-title {
   font-size: 0.75rem;
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--text-muted);
-  margin-bottom: 0.75rem;
+  letter-spacing: 0.08em;
+  color: #0f172a;
+  margin-bottom: 1rem;
   padding-left: 0.75rem;
 }
 
@@ -86,54 +115,55 @@ const isActive = (path) => route.path === path;
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
+  gap: 0.15rem;
 }
 
+/* Premium TailwindUI Pill Style Links */
 .nav-item {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.625rem 0.75rem;
+  padding: 0.5rem 0.75rem;
   text-decoration: none;
-  color: var(--text-main);
-  font-size: 0.9rem;
+  color: #64748b;
+  font-size: 0.875rem;
   font-weight: 500;
-  border-radius: 10px;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  transition: all 0.15s ease;
 }
 
 .nav-item:hover {
-  background-color: var(--light-color);
-  color: var(--primary-color);
-  transform: translateX(4px);
+  background-color: #f1f5f9;
+  color: #0f172a;
 }
 
 .nav-item.active {
-  background-color: rgba(79, 70, 229, 0.1);
+  background-color: rgba(79, 70, 229, 0.08); /* Primary color low opacity */
   color: var(--primary-color);
   font-weight: 600;
 }
 
-.icon-box {
+/* Icon Container without the heavy shadows, much cleaner */
+.icon-space {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
-  background: white;
-  box-shadow: var(--shadow-sm);
+  width: 24px;
+  height: 24px;
   transition: all 0.2s;
-  color: var(--text-muted);
+  color: #94a3b8;
 }
 
-.nav-item:hover .icon-box,
-.nav-item.active .icon-box {
+.nav-item:hover .icon-space {
+  color: #475569;
+}
+
+.nav-item.active .icon-space {
   color: var(--primary-color);
-  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.1);
 }
 
-.nav-item.active .icon-box {
-  background: white;
+.nav-icon {
+  width: 18px;
+  height: 18px;
 }
 </style>

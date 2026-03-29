@@ -1,364 +1,335 @@
 <script setup>
-import { RouterLink } from 'vue-router';
+import { RouterLink } from 'vue-router'
 </script>
 
 <template>
-  <div class="introduction-page">
+  <div class="landing-page">
+    
     <!-- Hero Section -->
-    <header class="hero-section">
-      <div class="hero-content reveal-up">
-        <div class="hero-badge">v1.2.0 is out!</div>
-        <h1 class="hero-title">
-          Build <span class="text-gradient">Faster</span>.
-          <br />
-          Design <span class="text-gradient">Smarter</span>.
-        </h1>
-        <p class="hero-subtitle">
-          A high-performance UI toolkit for Vue 3 that strikes the perfect balance
-          between flexibility and out-of-the-box aesthetics. Ready for your next SAAS.
-        </p>
-        <div class="hero-actions">
-          <RouterLink to="/installation" class="btn btn-primary">
-            Get Started
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-          </RouterLink>
-          <a href="https://github.com" target="_blank" class="btn btn-glass">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
-            Star on GitHub
-          </a>
-        </div>
-      </div>
+    <section class="hero-container relative">
+      <!-- Decorative Background Grid -->
+      <div class="absolute inset-0 grid-bg pointer-events-none"></div>
       
-      <!-- Abstract Illustration -->
-      <div class="hero-visual reveal-right">
-        <div class="visual-stack">
-          <div class="visual-card card-1 shadow-lg"></div>
-          <div class="visual-card card-2 shadow-lg"></div>
-          <div class="visual-card card-3 shadow-lg"></div>
+      <!-- Decorative Glowing Orbs -->
+      <div class="glow-orb primary"></div>
+      <div class="glow-orb secondary"></div>
+
+      <div class="relative z-10 hero-content text-center">
+        <a href="https://github.com" target="_blank" class="release-badge">
+          <span class="badge-pill new">New</span>
+          <span>v1.0.0 is officially live</span>
+          <svg class="chevron-right" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" /></svg>
+        </a>
+
+        <h1 class="hero-title">
+          Build your next idea <br class="hide-mobile" />
+          <span class="text-gradient">even faster.</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          Beautifully designed, expertly crafted Vue UI components. Ready to copy and paste into your next project. Zero dependencies required.
+        </p>
+        
+        <div class="hero-buttons">
+          <RouterLink to="/components" class="btn btn-primary btn-lg">
+            Browse Components
+          </RouterLink>
+          <RouterLink to="/installation" class="btn btn-secondary btn-lg btn-outline">
+            Read Documentation
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" class="arrow"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </RouterLink>
         </div>
       </div>
-    </header>
+    </section>
 
     <!-- Features Section -->
     <section class="features-section">
-      <div class="section-title-wrapper reveal-up">
-        <h2 class="section-title">Designed for Modern Teams</h2>
-        <p class="section-subtitle">Focus on your business logic, we'll take care of the pixels.</p>
+      <div class="feature-header">
+        <h2 class="section-title">Everything you need to ship.</h2>
+        <p class="section-subtitle">A massive selection of responsive, accessible, and lightweight components designed for modern web applications.</p>
       </div>
-
-      <div class="features-grid">
-        <div class="feature-card reveal-up" style="--d: 0.1s">
-          <div class="feature-icon bg-blue">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+      
+      <div class="feature-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="icon-square color-indigo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
           </div>
-          <h3>Component First</h3>
-          <p>Dozens of pre-built, production-ready components that you can easily drop into any project.</p>
+          <h3 class="card-title">17 Component Families</h3>
+          <p class="card-text">Every foundational piece you need: tables, navbars, modals, and tooltips. Carefully constructed for maximum modularity.</p>
         </div>
-
-        <div class="feature-card reveal-up" style="--d: 0.2s">
-          <div class="feature-icon bg-purple">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+        
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="icon-square color-emerald">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
           </div>
-          <h3>Themable</h3>
-          <p>Fully customizable styles using CSS variables. Change your entire brand kit in seconds.</p>
+          <h3 class="card-title">Pure Vue & CSS</h3>
+          <p class="card-text">No bloated dependencies. We rely strictly on modern CSS and Vue 3 reactivity to handle complex states and animations natively.</p>
         </div>
-
-        <div class="feature-card reveal-up" style="--d: 0.3s">
-          <div class="feature-icon bg-teal">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+        
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="icon-square color-sky">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
           </div>
-          <h3>Responsive</h3>
-          <p>Built with responsiveness at its core. Every component works beautifully on mobile gadgets.</p>
-        </div>
-
-        <div class="feature-card reveal-up" style="--d: 0.4s">
-          <div class="feature-icon bg-orange">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg>
-          </div>
-          <h3>Accessible</h3>
-          <p>ARIA compliance and keyboard navigation support out-of-the-box for a better inclusive web.</p>
+          <h3 class="card-title">Responsive by Default</h3>
+          <p class="card-text">Every component is meticulously tested to break down gracefully on mobile screens, tablets, and massive 4K monitors.</p>
         </div>
       </div>
     </section>
 
-    <!-- Quick Start -->
-    <section class="quick-start-section reveal-up">
-      <div class="glass-cta">
-        <div class="cta-content">
-          <h2>Ready to get started?</h2>
-          <p>Import Zems UI and start building your dream interface today.</p>
-        </div>
-        <RouterLink to="/button" class="btn btn-primary btn-lg">Explore Components</RouterLink>
-      </div>
-    </section>
   </div>
 </template>
 
 <style scoped>
-.introduction-page {
-  padding-bottom: 5rem;
-}
-
-/* HERO SECTION */
-.hero-section {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 3rem;
-  align-items: center;
-  padding: 4rem 0 6rem;
-  overflow: hidden;
-}
-
-.hero-badge {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: rgba(79, 70, 229, 0.1);
-  color: var(--primary-color);
-  border-radius: 99px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  margin-bottom: 1.5rem;
-  border: 1px solid rgba(79, 70, 229, 0.2);
-}
-
-.hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  line-height: 1.1;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  margin-bottom: 1.5rem;
-  color: var(--dark-color);
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero-subtitle {
-  font-size: 1.25rem;
-  color: var(--text-muted);
-  line-height: 1.6;
-  max-width: 600px;
-  margin-bottom: 2.5rem;
-}
-
-.hero-actions {
+/* Scoped Layout Frame */
+.landing-page {
+  /* Override the main-layout padding restriction to allow the Hero to breathe */
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 8rem;
+  padding-bottom: 4rem;
 }
 
-.btn-lg {
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-}
-
-/* HERO VISUALS */
-.hero-visual {
-  position: relative;
+/* ==================================
+   HERO SECTION
+   ================================== */
+.hero-container {
+  padding-top: 5rem;
+  padding-bottom: 2rem;
   display: flex;
   justify-content: center;
 }
 
-.visual-stack {
-  position: relative;
-  width: 400px;
-  height: 400px;
+.relative { position: relative; }
+.absolute { position: absolute; }
+.inset-0 { top: 0; right: 0; bottom: 0; left: 0; }
+.pointer-events-none { pointer-events: none; }
+.z-10 { z-index: 10; }
+
+/* Grid Pattern Background */
+.grid-bg {
+  background-size: 40px 40px;
+  background-image: linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 10%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 10%, transparent 100%);
 }
 
-.visual-card {
+/* Ambient Glow Orbs */
+.glow-orb {
   position: absolute;
-  border-radius: 20px;
-  background: white;
-  border: 1px solid var(--light-color);
+  width: 40vw;
+  height: 40vw;
+  max-width: 600px;
+  max-height: 600px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+.glow-orb.primary { top: -10%; left: -10%; background: var(--primary-color); }
+.glow-orb.secondary { bottom: -10%; right: -10%; background: #0ea5e9; }
+
+/* Hero Text & Spacing */
+.hero-content {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
 }
 
-.card-1 {
-  width: 300px;
-  height: 200px;
-  top: 0;
-  right: 0;
-  background: linear-gradient(135deg, white, #f1f5f9);
-  z-index: 3;
-  transform: rotate(-5deg);
+/* Version Pill */
+.release-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0.5rem 0.35rem 0.35rem;
+  background: rgba(79, 70, 229, 0.05);
+  border: 1px solid rgba(79, 70, 229, 0.15);
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #4338ca;
+  text-decoration: none;
+  margin-bottom: 2rem;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.05);
 }
 
-.card-2 {
-  width: 250px;
-  height: 150px;
-  top: 100px;
-  left: 0;
-  background: white;
-  z-index: 2;
-  transform: rotate(10deg);
-  opacity: 0.8;
+.release-badge:hover {
+  background: rgba(79, 70, 229, 0.08);
+  border-color: rgba(79, 70, 229, 0.3);
+  transform: translateY(-1px);
 }
 
-.card-3 {
-  width: 320px;
-  height: 220px;
-  bottom: 0;
-  right: 50px;
+.badge-pill.new {
   background: var(--primary-color);
-  opacity: 0.1;
-  z-index: 1;
-  transform: rotate(-2deg);
+  color: white;
+  padding: 0.1rem 0.6rem;
+  border-radius: 9999px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.7rem;
 }
 
-/* FEATURES SECTION */
+.chevron-right { width: 16px; height: 16px; color: #6366f1; }
+
+/* Extreme Typography */
+.hero-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: #0f172a;
+  margin: 0 0 1.5rem 0;
+  font-family: 'Inter', var(--roboto-font);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, var(--primary-color), #0ea5e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-subtitle {
+  font-size: clamp(1.125rem, 2vw, 1.25rem);
+  line-height: 1.6;
+  color: #64748b;
+  max-width: 650px;
+  margin: 0 0 2.5rem 0;
+}
+
+/* Buttons */
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.btn-lg {
+  padding: 0.875rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 10px;
+}
+
+.btn-outline {
+  background: white;
+  color: #0f172a;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-outline:hover {
+  background: #f8fafc;
+  border-color: #94a3b8;
+  color: #0f172a;
+}
+
+.btn-outline .arrow { width: 18px; height: 18px; transition: transform 0.2s;}
+.btn-outline:hover .arrow { transform: translateX(2px); }
+
+/* ==================================
+   FEATURES SECTION
+   ================================== */
 .features-section {
-  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.section-title-wrapper {
-  text-align: center;
+.feature-header {
+  max-width: 600px;
   margin-bottom: 4rem;
 }
 
 .section-title {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 4vw, 2.5rem);
   font-weight: 800;
-  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  margin: 0 0 1rem 0;
 }
 
 .section-subtitle {
   font-size: 1.125rem;
-  color: var(--text-muted);
+  color: #64748b;
+  line-height: 1.6;
 }
 
-.features-grid {
+/* Feature Grid Cards */
+.feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  width: 100%;
 }
 
 .feature-card {
+  text-align: left;
   padding: 2.5rem;
   background: white;
-  border-radius: 24px;
-  border: 1px solid var(--light-color);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 16px;
+  border: 1px solid #f1f5f9;
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02), 0 10px 15px -3px rgba(0,0,0,0.02);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .feature-card:hover {
-  transform: translateY(-10px);
-  box-shadow: var(--shadow-xl);
-  border-color: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01);
+  border-color: #e2e8f0;
 }
 
-.feature-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+.icon-square {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  color: white;
 }
 
-.bg-blue { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
-.bg-purple { background: linear-gradient(135deg, #a855f7, #6b21a8); }
-.bg-teal { background: linear-gradient(135deg, #14b8a6, #0f766e); }
-.bg-orange { background: linear-gradient(135deg, #f97316, #ea580c); }
+.color-indigo { background: #e0e7ff; color: #4338ca; }
+.color-emerald { background: #d1fae5; color: #047857; }
+.color-sky { background: #e0f2fe; color: #0369a1; }
 
-.feature-card h3 {
-  font-size: 1.25rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.feature-card p {
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-/* QUICK START */
-.quick-start-section {
-  margin-top: 8rem;
-}
-
-.glass-cta {
-  padding: 4rem;
-  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
-  border-radius: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 2rem;
-  color: white;
-  box-shadow: 0 20px 50px rgba(79, 70, 229, 0.3);
-}
-
-.cta-content h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 1rem;
-}
-
-.cta-content p {
+.card-title {
   font-size: 1.125rem;
-  opacity: 0.9;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 0 0 0.75rem 0;
 }
 
-/* RESPONSIVE */
+.card-text {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #64748b;
+  margin: 0;
+}
+
+/* Mobile Breaking points */
 @media (max-width: 1024px) {
-  .hero-section {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  
-  .hero-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .hero-visual {
-    margin-top: 2rem;
-  }
-  
-  .glass-cta {
-    flex-direction: column;
-    text-align: center;
-    padding: 3rem 2rem;
-  }
+  .feature-grid { grid-template-columns: repeat(2, 1fr); }
+  .hide-mobile { display: none; }
 }
 
-/* Reveal Animations */
-.reveal-up {
-  opacity: 0;
-  animation: revealUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  animation-delay: var(--d, 0s);
-}
-
-.reveal-right {
-  opacity: 0;
-  animation: revealRight 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes revealUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes revealRight {
-  from {
-    opacity: 0;
-    transform: translateX(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+@media (max-width: 640px) {
+  .hero-buttons { flex-direction: column; width: 100%; }
+  .btn-lg { width: 100%; }
+  .feature-grid { grid-template-columns: 1fr; }
+  .hero-container { padding-top: 2rem; }
 }
 </style>

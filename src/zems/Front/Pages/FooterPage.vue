@@ -9,7 +9,7 @@ const toggle = (id) => { show.value[id] = !show.value[id]; };
 const footer1Code = `<footer class="footer-dark">
   <div class="footer-inner">
     <div class="brand-col">
-      <div class="logo">Zems<span>UI</span></div>
+      <div class="logo">Pure<span>Vue</span></div>
       <p>Build beautiful interfaces faster with our modern component library.</p>
       <div class="socials">
         <!-- Twitter, GitHub, LinkedIn icons -->
@@ -31,7 +31,7 @@ const footer1Code = `<footer class="footer-dark">
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 ZemsUI. All rights reserved.</p>
+    <p>© 2026 PureVue. All rights reserved.</p>
   </div>
 </footer>`;
 
@@ -96,7 +96,7 @@ const footer3Code = `<footer class="footer-mega">
         <div class="ft1-inner">
           <!-- Brand -->
           <div class="ft1-brand">
-            <div class="ft1-logo">Zems<span>UI</span></div>
+            <div class="ft1-logo">Pure<span>Vue</span></div>
             <p>Build beautiful interfaces faster with our premium Vue component library. Open source & MIT licensed.</p>
             <div class="ft1-socials">
               <a class="social-btn" title="Twitter">
@@ -140,7 +140,7 @@ const footer3Code = `<footer class="footer-mega">
         </div>
 
         <div class="ft1-bottom">
-          <span>© 2026 ZemsUI. All rights reserved.</span>
+          <span>© 2026 PureVue. All rights reserved.</span>
           <div class="ft1-legal">
             <a>Privacy Policy</a>
             <a>Terms of Service</a>
@@ -212,7 +212,7 @@ const footer3Code = `<footer class="footer-mega">
           <div class="ft3-banner-inner">
             <div>
               <h2>Ready to build something great? </h2>
-              <p>Join 12,000+ developers using Zems UI to ship faster.</p>
+              <p>Join 12,000+ developers using PureVue to ship faster.</p>
             </div>
             <div class="ft3-banner-actions">
               <button class="ft3-btn-solid">Start for Free</button>
@@ -224,7 +224,7 @@ const footer3Code = `<footer class="footer-mega">
         <!-- Main links grid -->
         <div class="ft3-main">
           <div class="ft3-brand-col">
-            <div class="ft3-logo">Zems<span>UI</span></div>
+            <div class="ft3-logo">Pure<span>Vue</span></div>
             <p>The modern component library for Vue 3 developers who refuse to compromise on quality.</p>
             <div class="ft3-socials">
               <a class="ft3-s">
@@ -261,7 +261,7 @@ const footer3Code = `<footer class="footer-mega">
         </div>
 
         <div class="ft3-bottom">
-          <span>© 2026 ZemsUI. Crafted with ❤️ for developers worldwide.</span>
+          <span>© 2026 PureVue. Crafted with ❤️ for developers worldwide.</span>
           <div class="ft3-legal">
             <a>Privacy Policy</a>
             <a>Terms of Use</a>

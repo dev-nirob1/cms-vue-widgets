@@ -20,12 +20,12 @@ const openIcon = ref(0);
 const showCodeIcon = ref(false);
 
 const accordionData = [
-  { title: 'What is Zems UI?', content: 'Zems UI is a modern, responsive, and highly customizable UI component library built for Vue 3 developers who prioritize both speed and aesthetics.' },
+  { title: 'What is PureVue?', content: 'PureVue is a modern, responsive, and highly customizable UI component library built for Vue 3 developers who prioritize both speed and aesthetics.' },
   { title: 'How do I install it?', content: 'You can install it via npm, yarn, or pnpm. Simply run the install command and import the styles as shown in our Guide.' },
   { title: 'Is it production ready?', content: 'Absolutely! Our components are rigorously tested and optimized for production environments, focusing on performance and accessibility.' }
 ];
 
-const simpleAccordionCode = `<template>
+const simpleAccordionHtml = `<template>
   <div class="accordion-group">
     <div v-for="(item, i) in accordionData" :key="i" class="accordion-item">
       <button @click="open = i" :class="['header', { active: open === i }]">
@@ -39,7 +39,21 @@ const simpleAccordionCode = `<template>
   </div>
 </template>`;
 
-const flushAccordionCode = `<template>
+const simpleAccordionCss = `/* Accordion Bordered Style */
+.accordion-group { display: flex; flex-direction: column; gap: 0.75rem; }
+.accordion-item { border: 1px solid #e2e8f0; border-radius: 12px; background: white; overflow: hidden; transition: all 0.3s; }
+.accordion-item.active { border-color: var(--primary-color); box-shadow: 0 4px 12px rgba(79, 70, 229, 0.08); }
+.header { padding: 1.25rem; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border: none; background: transparent; width: 100%; text-align: left; }
+.header svg { transition: transform 0.3s; color: #64748b; }
+.header.active svg { transform: rotate(180deg); color: var(--primary-color); }
+.body { padding: 0 1.25rem 1.25rem; color: #64748b; line-height: 1.6; }`;
+
+const simpleAccordionBlocks = [
+  { name: 'Vue', language: 'html', code: simpleAccordionHtml },
+  { name: 'CSS', language: 'css', code: simpleAccordionCss }
+];
+
+const flushAccordionHtml = `<template>
   <div class="accordion-flush">
     <!-- No outer borders, clean dividers -->
     <div v-for="(item, i) in accordionData" :key="i" class="item">
@@ -47,6 +61,19 @@ const flushAccordionCode = `<template>
     </div>
   </div>
 </template>`;
+
+const flushAccordionCss = `/* Accordion Flush Style */
+.accordion-flush { display: flex; flex-direction: column; }
+.item { border-bottom: 1px solid #e2e8f0; }
+.header { padding: 1.25rem 0; font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1.1rem; }
+.plus-icon { font-size: 1.5rem; color: #64748b; width: 24px; text-align: center; }
+.item.active .plus-icon { color: var(--primary-color); }
+.body { padding: 0 0 1.5rem 0; color: #64748b; line-height: 1.6; }`;
+
+const flushAccordionBlocks = [
+  { name: 'Vue', language: 'html', code: flushAccordionHtml },
+  { name: 'CSS', language: 'css', code: flushAccordionCss }
+];
 </script>
 
 <template>
@@ -81,7 +108,7 @@ const flushAccordionCode = `<template>
     </div>
     
     <transition name="slide">
-      <CodeSnippet v-if="showCodeSimple" :code="simpleAccordionCode" language="html" />
+      <CodeSnippet v-if="showCodeSimple" :blocks="simpleAccordionBlocks" />
     </transition>
   </section>
 
@@ -111,7 +138,7 @@ const flushAccordionCode = `<template>
     </div>
     
     <transition name="slide">
-      <CodeSnippet v-if="showCodeFlush" :code="flushAccordionCode" language="html" />
+      <CodeSnippet v-if="showCodeFlush" :blocks="flushAccordionBlocks" />
     </transition>
   </section>
 

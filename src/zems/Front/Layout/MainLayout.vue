@@ -25,57 +25,73 @@ onUnmounted(() => {
 
 <template>
   <div class="app-layout">
-    <!-- NAVBAR -->
-    <header :class="['navbar', 'glass', { scrolled: isScrolled }]">
+    <!-- NAVBAR PREMIUM -->
+    <header :class="['navbar', { scrolled: isScrolled }]">
       <div class="navbar-container">
+        <!-- Logo & Mobile Menu -->
         <div class="navbar-left">
           <button class="menu-btn" @click="toggleSidebar" aria-label="Toggle Sidebar">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
           </button>
-          <div class="logo-wrapper">
-            <div class="logo-icon"></div>
-            <span class="logo-text">Zems<span class="text-primary">UI</span></span>
-          </div>
+          
+          <RouterLink to="/" class="logo-wrapper">
+            <div class="logo-icon">
+              <!-- Geometric Logo -->
+              <svg viewBox="0 0 24 24" fill="none" class="brand-svg"><path d="M4 11L12 4L20 11V20H4V11Z" fill="var(--primary-color)" fill-opacity="0.2" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 4L12 20M4 11L20 11" stroke="var(--primary-color)" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <span class="logo-text">PureVue</span>
+          </RouterLink>
+
+          <!-- Top Links -->
+          <nav class="navbar-links hide-mobile">
+            <RouterLink to="/components" class="nav-link" active-class="active">Components</RouterLink>
+            <a href="#" class="nav-link">Blocks</a>
+            <a href="#" class="nav-link">Templates</a>
+          </nav>
         </div>
 
-        <nav class="navbar-center hide-mobile">
-          <RouterLink to="/components" class="nav-link" active-class="active">Components</RouterLink>
-          <RouterLink to="/installation" class="nav-link" active-class="active">Guide</RouterLink>
-          <a href="#" class="nav-link">Resources</a>
-        </nav>
-
+        <!-- Utility Right -->
         <div class="navbar-right">
-          <div class="search-wrapper hide-mobile">
-            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-            <input type="text" placeholder="Search components..." class="search-input">
+          <!-- Command K Search Bar -->
+          <div class="search-command hide-mobile">
+            <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span class="search-text">Quick search...</span>
+            <kbd class="shortcut">Ctrl K</kbd>
           </div>
-          <a href="https://github.com" target="_blank" class="github-link" title="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+
+          <div class="divider hide-mobile"></div>
+
+          <!-- Github Icon -->
+          <a href="https://github.com" target="_blank" class="icon-link" aria-label="GitHub Repository">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.45-1.15-1.11-1.46-1.11-1.46-.9-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z"></path></svg>
           </a>
         </div>
       </div>
     </header>
 
-    <!-- BODY -->
+    <!-- MAIN BODY GRID -->
     <div class="layout-body">
-      <!-- SIDEBAR -->
-      <aside :class="['sidebar-wrapper', { open: sidebarOpen }]">
+      <!-- Left Sidebar (Navigation) -->
+      <aside :class="['sidebar-left', { open: sidebarOpen }]">
         <SidebarSection />
       </aside>
 
-      <!-- CONTENT -->
-      <main class="main-content">
-        <div class="content-container">
+      <!-- Center Main Content -->
+      <main class="page-content">
+        <div class="container-center">
           <RouterView />
         </div>
         
-        <footer class="content-footer">
-          <p>&copy; 2026 Zems UI Components. Built with Vue & Passion.</p>
+        <footer class="site-footer">
+          <div class="footer-meta">
+            <p>&copy; 2026 PureVue Components</p>
+            <p class="built-with">Built with Vue. Tailwind-inspired.</p>
+          </div>
         </footer>
       </main>
     </div>
 
-    <!-- BACKDROP -->
+    <!-- Mobile Backdrop -->
     <transition name="fade">
       <div v-if="sidebarOpen" class="backdrop" @click="toggleSidebar"></div>
     </transition>
@@ -87,247 +103,248 @@ onUnmounted(() => {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: var(--body-bg);
+  background-color: #ffffff; /* Premium white */
+  color: #0f172a;
 }
 
-/* NAVBAR */
+/* ============================
+   FROSTED NAVBAR (Tailwind Style)
+   ============================ */
 .navbar {
-  height: 72px;
-  display: flex;
-  align-items: center;
   position: sticky;
   top: 0;
-  z-index: 1000;
-  transition: all 0.3s ease;
-  border-bottom: 1px solid transparent;
+  z-index: 100;
+  width: 100%;
+  height: 64px;
+  background-color: rgba(255, 255, 255, 0.85); /* Slightly translucent */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #f1f5f9;
+  transition: box-shadow 0.2s;
 }
 
 .navbar.scrolled {
-  height: 64px;
-  border-bottom-color: var(--glass-border);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Very faint shadow */
+  border-bottom-color: rgba(15, 23, 42, 0.05);
 }
 
 .navbar-container {
-  width: 100%;
-  max-width: 1600px;
+  max-width: 90rem; /* ~1440px standard max width */
   margin: 0 auto;
   padding: 0 1.5rem;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.navbar-left {
+.navbar-left, .navbar-right {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
 }
 
+/* Branding */
 .logo-wrapper {
+  text-decoration: none;
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  text-decoration: none;
+  gap: 0.6rem;
+  margin-right: 1.5rem;
 }
 
 .logo-icon {
-  width: 32px;
-  height: 32px;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.brand-svg {
+  width: 100%;
+  height: 100%;
 }
 
 .logo-text {
   font-weight: 800;
   font-size: 1.25rem;
-  letter-spacing: -0.025em;
-  color: var(--dark-color);
+  color: #0f172a;
+  letter-spacing: -0.05em; /* Extremely tight typography */
 }
 
-.text-primary {
-  color: var(--primary-color);
+/* Nav Links */
+.navbar-links {
+  display: flex;
+  gap: 1rem;
+  border-left: 1px solid #e2e8f0;
+  padding-left: 1.5rem;
 }
+
+.nav-link {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #475569;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: #0f172a;
+}
+
+/* Right Search Mock */
+.search-command {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 0.4rem 0.6rem 0.4rem 0.75rem;
+  border-radius: 8px;
+  cursor: text;
+  color: #94a3b8;
+  width: 200px;
+  transition: border-color 0.2s;
+}
+
+.search-command:hover {
+  border-color: #cbd5e1;
+}
+
+.search-text {
+  font-size: 0.875rem;
+  font-weight: 400;
+  flex: 1;
+}
+
+.shortcut {
+  background-color: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  padding: 0.15rem 0.4rem;
+  font-size: 0.65rem;
+  font-family: inherit;
+  font-weight: 600;
+  color: #64748b;
+  box-shadow: inset 0 -1px 0 #e2e8f0;
+}
+
+.divider { width: 1px; height: 24px; background-color: #e2e8f0; }
+
+.icon-link { color: #64748b; transition: color 0.2s; display: flex; }
+.icon-link:hover { color: #0f172a; }
 
 .menu-btn {
   display: none;
   background: none;
   border: none;
-  color: var(--text-main);
+  color: #475569;
+  padding: 0;
   cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 8px;
-  transition: background 0.2s;
 }
 
-.menu-btn:hover {
-  background: var(--light-color);
-}
-
-/* NAVBAR CENTER */
-.navbar-center {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-link {
-  text-decoration: none;
-  color: var(--text-muted);
-  font-weight: 600;
-  font-size: 0.95rem;
-  transition: all 0.2s;
-  padding: 0.5rem 0.75rem;
-  border-radius: 6px;
-}
-
-.nav-link:hover, .nav-link.active {
-  color: var(--primary-color);
-}
-
-.nav-link.active {
-  background: rgba(79, 70, 229, 0.05);
-}
-
-/* NAVBAR RIGHT */
-.navbar-right {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-}
-
-.search-wrapper {
-  position: relative;
-  width: 240px;
-}
-
-.search-icon {
-  position: absolute;
-  left: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-muted);
-  pointer-events: none;
-}
-
-.search-input {
-  width: 100%;
-  background: var(--light-color);
-  border: 1px solid transparent;
-  padding: 0.5rem 1rem 0.5rem 2.5rem;
-  border-radius: 10px;
-  font-size: 0.9rem;
-  transition: all 0.2s;
-  margin: 0;
-}
-
-.search-input:focus {
-  outline: none;
-  background: white;
-  border-color: var(--primary-light);
-  box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
-}
-
-.github-link {
-  color: var(--text-muted);
-  transition: color 0.2s;
-}
-
-.github-link:hover {
-  color: var(--dark-color);
-}
-
-/* BODY */
+/* ============================
+   BODY LAYOUT GRID (3 COMPONENT)
+   ============================ */
 .layout-body {
   display: flex;
   flex: 1;
-  max-width: 1600px;
+  max-width: 90rem; /* ~1440px */
   width: 100%;
   margin: 0 auto;
 }
 
-/* SIDEBAR */
-.sidebar-wrapper {
-  width: 280px;
+/* 1. Left Navigation */
+.sidebar-left {
+  width: 18rem; /* 288px */
+  flex-shrink: 0;
+  height: calc(100vh - 64px);
   position: sticky;
-  top: 72px;
-  height: calc(100vh - 72px);
+  top: 64px;
   overflow-y: auto;
-  border-right: 1px solid var(--light-color);
-  padding: 1.5rem 0;
-  background: white;
-  z-index: 90;
+  padding-top: 2.5rem; /* Heavy top padding */
+  border-right: 1px solid #f1f5f9;
+  background: white; /* No weird grey backgrounds */
+  z-index: 50;
+  /* hide scrollbar */
+  scrollbar-width: thin;
 }
 
-/* CONTENT */
-.main-content {
+/* 2. Center Content */
+.page-content {
   flex: 1;
-  min-width: 0;
+  min-width: 0; /* Prevents flexbox text overflow bleeding */
+  padding: 0 5rem; /* Extensive padding for a thin center reading line */
   display: flex;
   flex-direction: column;
 }
 
-.content-container {
-  padding: 2.5rem;
-  max-width: 1000px;
+.container-center {
+  max-width: 65rem; /* Larger max width since sidebar is gone */
   width: 100%;
   margin: 0 auto;
   flex: 1;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
 }
 
-.content-footer {
-  padding: 2rem 2.5rem;
-  border-top: 1px solid var(--light-color);
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  text-align: center;
+.site-footer {
+  border-top: 1px solid #e2e8f0;
+  padding: 2.5rem 0;
+  margin-top: auto;
 }
 
-/* BACKDROP */
-.backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.4);
-  backdrop-filter: blur(4px);
-  z-index: 95;
+.footer-inner {
+  max-width: 60rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875rem;
+  color: #94a3b8;
 }
 
-/* RESPONSIVE */
+.footer-inner p { margin: 0; }
+
+/* ============================
+   RESPONSIVENESS
+   ============================ */
+
+/* Medium Devices (Tablets) */
+@media (max-width: 1200px) {
+  .page-content { padding: 0 3rem; }
+}
+
+/* Small Devices (Mobile) */
 @media (max-width: 1024px) {
-  .sidebar-wrapper {
+  .sidebar-left {
     position: fixed;
     left: 0;
     top: 0;
     height: 100vh;
     transform: translateX(-100%);
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 1000;
+    z-index: 200;
+    padding-top: 1rem;
   }
-
-  .sidebar-wrapper.open {
-    transform: translateX(0);
-  }
-
-  .menu-btn {
-    display: flex;
-  }
+  .sidebar-left.open { transform: translateX(0); }
   
-  .hide-mobile {
-    display: none;
-  }
+  .hide-mobile { display: none; }
+  .menu-btn { display: block; }
+
+  .page-content { padding: 0 1rem; }
+  .footer-inner { flex-direction: column; gap: 0.5rem; text-align: center;}
 }
 
-@media (max-width: 640px) {
-  .content-container {
-    padding: 1.5rem;
-  }
+/* Backdrop Overlay */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 150;
 }
 
-/* Transitions */
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.3s;
-}
-.fade-enter-from, .fade-leave-to {
-  opacity: 0;
-}
+.fade-enter-active, .fade-leave-active { transition: opacity 0.3s; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
 </style>
