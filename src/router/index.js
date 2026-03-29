@@ -10,6 +10,8 @@ import ModalPage from '@/zems/Front/Pages/ModalPage.vue'
 import NavbarPage from '@/zems/Front/Pages/NavbarPage.vue'
 import IntroductionPage from '@/zems/Front/Pages/IntroductionPage.vue'
 import InstallationPage from '@/zems/Front/Pages/InstallationPage.vue'
+import AlertsPage from '@/zems/Front/Pages/AlertsPage.vue'
+import TabsPage from '@/zems/Front/Pages/TabsPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -40,6 +42,11 @@ const router = createRouter({
           component: AccordionPage,
         },
         {
+          path: '/alerts',
+          name: 'alerts',
+          component: AlertsPage,
+        },
+        {
           path: '/button',
           name: 'button',
           component: ButtonsPage,
@@ -68,6 +75,11 @@ const router = createRouter({
           path: '/navbar',
           name: 'navbar',
           component: NavbarPage,
+        },
+        {
+          path: '/tabs',
+          name: 'tabs',
+          component: TabsPage,
         },
         {
           path: '/footer',
