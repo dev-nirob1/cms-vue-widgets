@@ -8,7 +8,10 @@ import FormPage from '@/zems/Front/Pages/FormPage.vue'
 import GalleryPage from '@/zems/Front/Pages/GalleryPage.vue'
 import ModalPage from '@/zems/Front/Pages/ModalPage.vue'
 import NavbarPage from '@/zems/Front/Pages/NavbarPage.vue'
+import IntroductionPage from '@/zems/Front/Pages/IntroductionPage.vue'
+import InstallationPage from '@/zems/Front/Pages/InstallationPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -17,9 +20,19 @@ const router = createRouter({
       component: MainLayout,
       children: [
         {
+          path: '',
+          name: 'introduction',
+          component: IntroductionPage,
+        },
+        {
           path: '/components',
           name: 'components',
           component: ComponentsPage,
+        },
+        {
+          path: '/installation',
+          name: 'installation',
+          component: InstallationPage,
         },
         {
           path: '/accordion',
