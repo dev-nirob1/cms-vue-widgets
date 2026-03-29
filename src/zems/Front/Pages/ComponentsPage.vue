@@ -11,7 +11,9 @@ const components = [
   { name: 'Gallery', path: '/gallery', desc: 'Grids, carousels, and masonry layouts.', icon: 'M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z', color: '#ec4899' },
   { name: 'Modals', path: '/modal', desc: 'Dialogs, drawers, and lightbox popups.', icon: 'M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4', color: '#06b6d4' },
   { name: 'Navbar', path: '/navbar', desc: 'Top-level navigation and mega-menus.', icon: 'M4 6h16M4 12h16m-7 6h7', color: '#6366f1' },
-  { name: 'Tabs', path: '/tabs', desc: 'Switch between different content views.', icon: 'M4 6h16v12H4z M4 10h16 M10 6v4', color: '#14b8a6' },
+  { name: 'Tables', path: '/tables', desc: 'Grid views for data, users, and financials.', icon: 'M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z', color: '#14b8a6' },
+  { name: 'Dropdowns', path: '/dropdowns', desc: 'Contextual floating popovers and selectors.', icon: 'M19 9l-7 7-7-7', color: '#2dd4bf' },
+  { name: 'Tabs', path: '/tabs', desc: 'Switch between different content views.', icon: 'M4 6h16v12H4z M4 10h16 M10 6v4', color: '#8b5cf6' },
   { name: 'Footer', path: '/footer', desc: 'Bottom-level page layout patterns.', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1', color: '#64748b' }
 ];
 

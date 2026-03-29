@@ -12,6 +12,8 @@ import IntroductionPage from '@/zems/Front/Pages/IntroductionPage.vue'
 import InstallationPage from '@/zems/Front/Pages/InstallationPage.vue'
 import AlertsPage from '@/zems/Front/Pages/AlertsPage.vue'
 import TabsPage from '@/zems/Front/Pages/TabsPage.vue'
+import TablesPage from '@/zems/Front/Pages/TablesPage.vue'
+import DropdownsPage from '@/zems/Front/Pages/DropdownsPage.vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
@@ -45,6 +47,16 @@ const router = createRouter({
           path: '/alerts',
           name: 'alerts',
           component: AlertsPage,
+        },
+        {
+          path: '/tables',
+          name: 'tables',
+          component: TablesPage,
+        },
+        {
+          path: '/dropdowns',
+          name: 'dropdowns',
+          component: DropdownsPage,
         },
         {
           path: '/button',
